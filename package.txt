@@ -1,0 +1,24 @@
+  "cds": {
+    "hana": {
+        "deploy-format": "hdbtable"
+    },
+    "requires": {
+        "db": {
+            "kind": "hana"
+        },
+        "uaa": {
+            "kind": "xsuaa",
+            "credentials": {}
+        },
+        "auth": { 
+            "kind": "xsuaa-auth" 
+        }
+    },
+    "[development]": {
+        "requires": {
+            "db": {
+                "kind": "sql"
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "xsappname": "bsb",
+    "tenant-mode": "dedicated",
+    "scopes": [
+      {
+        "name": "$XSAPPNAME.BSBCPI",
+        "description": "BSBCPI"
+      }
+    ],
+    "attributes": [],
+    "role-templates": [
+      {
+        "name": "BSBCPI",
+        "description": "generated",
+        "scope-references": [
+          "$XSAPPNAME.BSBCPI"
+        ],
+        "attribute-references": []
+      }   
+    ]
+  }
+  

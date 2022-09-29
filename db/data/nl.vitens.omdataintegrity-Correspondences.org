@@ -1,0 +1,2 @@
+JSONFileName;FormName;IdocID;ZIPFileName;CompanyCode;NrOfRecordsSent;NrOfLettersSent;NrOfEmailsSent;NrOfMessagesSent;NrOfDirectDebet;NrOfManualPayments;NrOfBounces;SentToParagon;NrOfRecordsReceived;NrOfLettersReceived;NrOfEmailsReceived;NrOfMessagesReceived;ReceivedFromParagon;Status
+JSON File Name;Form Name;IDoc ID;ZIP File Name;1000;10000;90;9900;10;9876;124;5;2022-06-01T14:00:01;9997;89;9898;10;2022-06-01T14:09:22;RecNOK

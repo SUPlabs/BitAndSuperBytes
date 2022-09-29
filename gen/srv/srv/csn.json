@@ -1,0 +1,140 @@
+{
+  "namespace": "my.bsb",
+  "definitions": {
+    "my.bsb.Material": {
+      "kind": "entity",
+      "elements": {
+        "MaterialID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Description": {
+          "type": "cds.String"
+        },
+        "Vendor": {
+          "type": "cds.Association",
+          "target": "my.bsb.Vendor",
+          "keys": [
+            {
+              "ref": [
+                "VendorID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "my.bsb.Vendor": {
+      "kind": "entity",
+      "elements": {
+        "VendorID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Name": {
+          "type": "cds.String"
+        },
+        "Materials": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "my.bsb.Material",
+          "on": [
+            {
+              "ref": [
+                "Materials",
+                "Vendor"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "BSBService": {
+      "@source": "srv/cat-service.cds",
+      "kind": "service"
+    },
+    "BSBService.Material": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "my.bsb.Material"
+          ]
+        }
+      },
+      "elements": {
+        "MaterialID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Description": {
+          "type": "cds.String"
+        },
+        "Vendor": {
+          "type": "cds.Association",
+          "target": "BSBService.Vendor",
+          "keys": [
+            {
+              "ref": [
+                "VendorID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "BSBService.Vendor": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "my.bsb.Vendor"
+          ]
+        }
+      },
+      "elements": {
+        "VendorID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Name": {
+          "type": "cds.String"
+        },
+        "Materials": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "BSBService.Material",
+          "on": [
+            {
+              "ref": [
+                "Materials",
+                "Vendor"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v2.15.4",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}
